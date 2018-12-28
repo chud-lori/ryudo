@@ -14,5 +14,6 @@ if (!isset($_SESSION['username'])) {
 		<li><a href="create.php">Add data</a></li>
 		<li><a href="list.php">Show data</a></li>
 	</ul>
+	<a href="logout.php">Logout</a>
 </body>
 </html>
