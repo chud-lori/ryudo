@@ -3,8 +3,9 @@ require_once('../connect.php');
 // Check if clicked or submited
 if (isset($_POST['add'])) {
 	// Get data from input
-	$title = $_POST['title'];
-	$body = $_POST['body'];
+    // mysqli_real_escape_string() for escape petik
+	$title = mysqli_real_escape_string($conn, $_POST['title']);
+	$body = mysqli_real_escape_string($conn, $_POST['body']);
 	// Get file/image data
     $fileSize = $_FILES['img_content']['size'];
     $fileTmpName  = $_FILES['img_content']['tmp_name'];

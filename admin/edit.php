@@ -32,10 +32,11 @@ if (!isset($_SESSION['username'])) {
 <?php
 if (isset($_POST['edit'])) {
 	// Get data from input
-	$title = $_POST['title'];
-	$body = $_POST['body'];
+	// mysqli_real_escape_string() for escape petik
+	$title = mysqli_real_escape_string($conn, $_POST['title']);
+	$body = mysqli_real_escape_string($conn, $_POST['body']);
 
-    // Insert data to database, query
+    // Update or edit data from database, query
     $query = "update content set title='$title', body='$body', tanggal=now() where id='$id'";
     $eksekusi = mysqli_query($conn, $query) or die(mysqli_error($conn));
 

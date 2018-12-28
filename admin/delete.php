@@ -9,9 +9,12 @@ $id = $_GET['id'];
 $query = "delete from content where id='$id'";
 // Execution
 $eksekusi = mysqli_query($conn, $query);
+// Get image name
+$img = mysqli_fetch_array($eksekusi);
+$deletePict = unlink('../images/'.$img['image']); // delete image file
 
 // If success delete
-if ($eksekusi) {
+if ($eksekusi && $deletePict) {
 	// Redirect to list page
 	header("location: list.php");
 }
