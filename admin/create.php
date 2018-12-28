@@ -1,3 +1,15 @@
+<?php
+// import connect
+require_once('../connect.php');
+// start session
+session_start();
+
+// check if not login
+if (!isset($_SESSION['username'])) {
+	// will be redirect to login page
+	header("location: ../login");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
